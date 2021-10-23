@@ -83,4 +83,26 @@ module.exports.MySQL = class MySQL {
             })
         })
     }
+
+    getCouponValue(code) {
+        return new Promise((resolve, reject) => {
+            if(!this.username || !this.pass) return
+            this.connection.query(`select value from coupons where code="${code}"`,
+            (error, results, field) => {
+                if(error) resolve(null)
+                resolve(JSON.parse(JSON.stringify(results)))
+            })
+        })
+    }
+
+    redeemCoupon(code) {
+        return new Promise((resolve, reject) => {
+            if(!this.username || !this.pass) return
+            this.connection.query(`insert into coupons (code, value) values ("${code}", ${value})`,
+            (error, results, fields) => {
+                if(error) throw error
+                resolve(1)
+            })
+        })
+    }
 }
