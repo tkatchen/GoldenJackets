@@ -1,12 +1,13 @@
 import React from 'react';
 import product_card from './ProductData';
+import './Products.css'
 
 const Products = () => {
     console.log(product_card);
     const listItems = product_card.map((item) => 
         <div className="card" key={item.id}>
             <div className="card_img">
-                <img src={item.thumb}></img>
+                <img className="img" src={item.thumb}></img>
             </div>
             <div className="card_header">
                 <h2>{item.product_name}</h2>
