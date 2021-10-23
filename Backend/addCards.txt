@@ -8,14 +8,14 @@ let headers = {
   }
 
   let body = {
-    card:"5D"
+    cards:["5D"]
   }
 
   const [token, setToken] = useState('');
     useEffect(() => {
       async function getToken() {
         const token = await new Promise((resolve, reject) => {
-          axios.post("http://localhost:6969/addCard", headers, {params:body})
+          axios.post("http://localhost:6969/addCards", headers, {params:body})
           .then((res) => {
             resolve(res.data)
           })
