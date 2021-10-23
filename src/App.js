@@ -8,7 +8,6 @@ import Products from './Pages/Products';
 
 function App() {
   return (
-    <>
       <Router>
         <Navbar />
         <Switch>
@@ -17,7 +16,6 @@ function App() {
           <Route path='/products' component={Products} />
         </Switch>
       </Router>
-    </>
   );
 }
 
