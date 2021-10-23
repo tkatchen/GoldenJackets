@@ -4,21 +4,18 @@ let cors = require('cors')
 let MySQL = require("./mysql.js").MySQL
 let mysql = new MySQL()
 
-console.log('yo')
-
 app.use(cors())
 
 app.get("/items", async (req, res) => {
-    let items = await mysql.getItems()
-    res.send(items)
+    res.send(await mysql.getItems())
 })
 
-app.post("/register", (req, res) => {
-    res.send(mysql.register(req.username, req.pass))
+app.post("/register", async (req, res) => {
+    res.send(await mysql.register(req.username, req.pass))
 })
 
-app.post("/login", (req, res) => {
-    res.send(mysql.login(red.username, req.pass))
+app.post("/login", async (req, res) => {
+    res.send(await mysql.login(red.username, req.pass))
 })
 
 app.listen(6969)

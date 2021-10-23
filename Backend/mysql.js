@@ -39,7 +39,7 @@ module.exports.MySQL = class MySQL {
             this.connection.query(`SELECT * FROM users WHERE \
             username="${username}" and pass="${pass}"`,
             (error, results, fields) => {
-                if(error) return null
+                if(error) resolve(null)
                 this.username = username
                 this.pass = pass
                 resolve(results.cards)
@@ -48,22 +48,26 @@ module.exports.MySQL = class MySQL {
     }
 
     getCards() {
-        if(!this.username || !this.pass) return
-        this.connection.query(`SELECT cards FROM users WHERE \
-        username="${username}" and pass="${pass}"`,
-        (error, results, fields) => {
-            if(error) throw error
-            resolve(results.cards)
+        return new Promise((resolve, reject) => {
+            if(!this.username || !this.pass) return
+            this.connection.query(`SELECT cards FROM users WHERE \
+            username="${username}" and pass="${pass}"`,
+            (error, results, fields) => {
+                if(error) throw error
+                resolve(results.cards)
+            })
         })
     }
 
     updateCards(cards) {
-        if(!this.username || !this.pass) return
-        this.connection.query(`UPDATE users SET cards=${JSON.stringify(cards)} \
-        WHERE username="${username}" and pass="${pass}"`,
-        (error, results, fields) => {
-            if(error) throw error
-            resolve(results.cards)
+        return new Promise((resolve, reject) => {
+            if(!this.username || !this.pass) return
+            this.connection.query(`UPDATE users SET cards=${JSON.stringify(cards)} \
+            WHERE username="${username}" and pass="${pass}"`,
+            (error, results, fields) => {
+                if(error) throw error
+                resolve(results.cards)
+            })
         })
     }
 }
