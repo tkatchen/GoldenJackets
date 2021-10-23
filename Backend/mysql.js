@@ -95,7 +95,7 @@ module.exports.MySQL = class MySQL {
         })
     }
 
-    redeemCoupon(code) {
+    removeCoupon(code) {
         return new Promise((resolve, reject) => {
             if(!this.username || !this.pass) return
             this.connection.query(`insert into coupons (code, value) values ("${code}", ${value})`,

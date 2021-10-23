@@ -40,6 +40,16 @@
     
 }
 
+.column {
+    float: left;
+    width: 50%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 h3{
     position:absolute;
     left: 0;
