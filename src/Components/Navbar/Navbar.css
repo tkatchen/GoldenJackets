@@ -1,9 +1,23 @@
 .navbar {
     background-color: #060b26;
-    height: 80px;
+    height: 100px;
     display: flex;
     justify-content: start;
     align-items: center;
+  }
+
+  .navtitle {
+    color: #e1ad01;
+    font-size: 35px;
+    text-decoration: none;
+    width: 95%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 4px;
+    justify-content: center;
+
   }
   
   .menu-bars {
