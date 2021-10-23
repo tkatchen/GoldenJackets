@@ -1,0 +1,28 @@
+import sha1 from 'sha1'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
+
+
+  let headers = {
+    'Content-Type': 'application/json',
+    "Access-Control-Allow-Origin": "*"
+  }
+
+  let body = {
+    username: "tyler",
+    pass: sha1("password")
+  }
+
+  const [token, setToken] = useState('');
+    useEffect(() => {
+      async function getToken() {
+        const token = await new Promise((resolve, reject) => {
+          axios.post("http://localhost:6969/register", headers, {params:body})
+          .then((res) => {
+            resolve(res.data)
+          })
+        })
+        setToken(token);
+     }
+     getToken();
+  }, [])

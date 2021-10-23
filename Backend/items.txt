@@ -1,0 +1,17 @@
+import sha1 from 'sha1'
+import {useState, useEffect} from 'react'
+import axios from 'axios'
+
+  const [token, setToken] = useState('');
+    useEffect(() => {
+      async function getToken() {
+        const token = await new Promise((resolve, reject) => {
+          axios.get("http://localhost:6969/items", {headers: {"Access-Control-Allow-Origin": "*"}})
+          .then((res) => {
+            resolve(res.data)
+          })
+        })
+        setToken(token);
+     }
+     getToken();
+  }, [])

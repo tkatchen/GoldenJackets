@@ -16,15 +16,15 @@ module.exports.MySQL = class MySQL {
         return new Promise((resolve, reject) => {
             this.connection.query("SELECT * FROM items", (error, results, fields) => {
                 if(error) throw error;
-                resolve(results)
+                resolve(JSON.parse(JSON.stringify(results)))
             })
         })
     }
 
     register(username, pass) {
         return new Promise((resolve, reject) => {
-            this.connect.query(`INSERT INTO users (username, pass, cards) \
-            values (${username}, ${pass}, ${"[]"});`,
+            this.connection.query(`INSERT INTO users (username, pass, cards) \
+            values ("${username}", "${pass}", \"[]\");`,
             (error, results, fields) => {
                 if(error) resolve(false)
                 this.username = username
@@ -42,7 +42,7 @@ module.exports.MySQL = class MySQL {
                 if(error) resolve(null)
                 this.username = username
                 this.pass = pass
-                resolve(results.cards)
+                resolve(JSON.parse(JSON.stringify(results)))
             })
         })
     }
@@ -51,10 +51,10 @@ module.exports.MySQL = class MySQL {
         return new Promise((resolve, reject) => {
             if(!this.username || !this.pass) return
             this.connection.query(`SELECT cards FROM users WHERE \
-            username="${username}" and pass="${pass}"`,
+            username="${this.username}" and pass="${this.pass}"`,
             (error, results, fields) => {
                 if(error) throw error
-                resolve(results.cards)
+                resolve(JSON.parse(JSON.stringify(results)))
             })
         })
     }
