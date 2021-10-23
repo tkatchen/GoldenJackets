@@ -1,4 +1,5 @@
 .body {
+
     width: 100%;
     height: 100%;
     position: relative;
@@ -15,14 +16,16 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 50%;
     padding: 30px 50px 20px 50px;
     box-sizing: border-box;
     background-color: #F5F5DC;
 }
 
 .main_content {
-    @extend .dFlex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 70%;
     height: 100%;
@@ -38,14 +41,16 @@ h3{
     position:absolute;
     left: 0;
     top: 0;
-    font-size: 10.5vw;
+    font-size: 20px;
     color: black;
 }
 
 .card {
     width: 30%;
     border-radius: 15px;
-    @extend .dFlex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     position: relative;
     transform: scale(.8);
@@ -62,13 +67,15 @@ img{
 }
 
 .card_header {
-    @extend .dFlex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     color: black;
     margin: 25px 0;
 }
 
-.h2Text{
+h2{
     font-size: 18px;
 }
 
@@ -91,7 +98,7 @@ span{
 }
 .card:hover{
     background-color:darkslategrey;
-    transform: scale(1.1);
+    transform: scale(1);
     cursor: pointer;
 }
 
@@ -102,7 +109,9 @@ span{
     border-radius: 35px;
     background-color: gray;
     color: rgba(white,0.5);
-    @extend .dFlex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     position: relative;
     transition:background-color .3 ease;

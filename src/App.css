@@ -9,7 +9,7 @@
 .home,
 .reports,
 .products {
-  display: flex;
+  display:flex;
   height: 90vh;
   justify-content: center;
   font-size: 3rem;

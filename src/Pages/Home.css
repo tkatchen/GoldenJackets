@@ -81,6 +81,7 @@ nav a{
   color: rgb(20, 4, 90);
   text-transform: uppercase;
   margin: 5px 0 15px;
+  position: relative;
   font-size: 35px;
 }
 .text-area a{
