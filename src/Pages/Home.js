@@ -13,7 +13,8 @@ function Home() {
                 <div className='text-area'>
                     <h2>Welcome to Golden Jackets!</h2>
                     <h3>A pawn shop for GaTech Students.</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>Students can join the casino to earn rewards!</p>
+                    <p>Click the sidebar to learn more!</p>
                 </div>
             </div>
         </div>

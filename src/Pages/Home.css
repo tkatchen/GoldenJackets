@@ -80,7 +80,7 @@ nav a{
 .text-area h3{
   color: rgb(20, 4, 90);
   text-transform: uppercase;
-  margin: 0 0 15px;
+  margin: 5px 0 15px;
   font-size: 35px;
 }
 .text-area a{
@@ -94,7 +94,7 @@ nav a{
   border-radius: 50px;
 }
 .text-area p{
-  font-size: 18px;
+  font-size: 25px;
   color: rgb(0, 0, 0);
   width: 70%;
   margin: 0 auto;
