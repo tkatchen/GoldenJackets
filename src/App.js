@@ -1,21 +1,12 @@
-import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import React from 'react'
+import './App.css';
 
-class App extends React.Component {
-	render() {
-		return (
-			<View>
-				<Text style={styles.text}>Hello, world!</Text>
-			</View>
-		)
-	}
+function App() {
+  return (
+    <div className="App">
+      hi
+    </div>
+  );
 }
 
-const styles = StyleSheet.create({
-	text: {
-		fontWeight: "bold",
-		fontSize: 30
-	}
-})
-
-export default App
+export default App;
