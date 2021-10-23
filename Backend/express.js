@@ -2,9 +2,8 @@ let express = require("express")
 let app = express()
 let cors = require('cors')
 let MySQL = require("./mysql.js").MySQL
-const { request } = require("express")
 let mysql = new MySQL()
-let {getHand, values} = require("../Util/cardHelper.js")
+let {getHand, values} = require("../src/Util/cardHelper.js")
 
 app.use(cors())
 
@@ -42,10 +41,8 @@ app.post("/redeemCards", (req, res) => {
         }
         await mysql.updateCards(p)
         let hand = getHand(req.query.cards)
-        console.log(hand)
         let value = values[hand]
         let code = Buffer.from(this.username+value.toString()+Math.random().toString()).toString('base64')
-        console.log(code)
         await mysql.generateCoupon(value, code)
         res.send(value)
     })
