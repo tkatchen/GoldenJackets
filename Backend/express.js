@@ -48,4 +48,9 @@ app.post("/redeemCards", (req, res) => {
     })
 })
 
+app.get("/getCouponValue", async (req, res) => {
+    console.log(req.query.code)
+    res.send(await mysql.getCouponValue(req.query.code))
+})
+
 app.listen(6969)
