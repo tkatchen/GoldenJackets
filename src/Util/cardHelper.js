@@ -100,6 +100,7 @@ exports.getHand = (cards) => {
     if(checkThreeOfAKind(cnt)) return 7
     if(checkTwoPair(cnt)) return 8
     if(checkPair(cnt)) return 9
+    return 10
 }
 
 exports.values = {
@@ -112,7 +113,8 @@ exports.values = {
     6:40,
     7:25,
     8:15,
-    9:10
+    9:10,
+    10:5
 }
 
 exports.Ranks = {
@@ -125,7 +127,8 @@ exports.Ranks = {
     6:"Straight",
     7:"Three of a Kind",
     8:"Two Pair",
-    9:"Pair"
+    9:"Pair",
+    10:"High Card"
 }
 
 exports.CARDS = [
@@ -143,7 +146,6 @@ exports.setCardsClean = (cards) => {
 
 exports.setCards = (buffer) => {
     this.cards = this.parseBuffer(buffer)
-    console.log(this.cards)
 }
 
 exports.parseBuffer = (buffer) => {

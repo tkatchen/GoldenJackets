@@ -40,12 +40,9 @@ module.exports.MySQL = class MySQL {
             this.connection.query(`SELECT cards FROM users WHERE \
             username="${username}" and pass="${pass}"`,
             (error, results, fields) => {
-                if(error) throw error
+                if(error) reject(error)
                 // Figuring this one out was a blast...
-                if(!Buffer.from(JSON.parse(JSON.stringify(results))[0].cards.data).toString("utf8")) {
-                    resolve([])
-                    return
-                }
+                //if(!Buffer.from(JSON.parse(JSON.stringify(results))[0].cards.data).toString("utf8")) return
                 resolve(JSON.parse(JSON.parse(JSON.stringify(Buffer.from(Buffer.from(JSON.parse(JSON.stringify(results))[0].cards.data).toString("utf8").match(/.{2}/g).map(x => "0x"+x), "hex").toString("utf8")).replace(/\u0000/g,""))).join("").match(/.{2}/g))
             })
         })
@@ -58,7 +55,7 @@ module.exports.MySQL = class MySQL {
             WHERE username="${username}" and pass="${pass}"`,
             (error, results, fields) => {
                 if(error) throw error
-                resolve(1)
+                resolve("d")
             })
         })
     }
@@ -68,7 +65,7 @@ module.exports.MySQL = class MySQL {
             this.connection.query(`insert into coupons (code, value) values ("${code}", ${value})`,
             (error, results, fields) => {
                 if(error) throw error
-                resolve(1)
+                resolve("d")
             })
         })
     }

@@ -16,7 +16,8 @@ app.post("/login", async (req, res) => {
 })
 
 app.get("/getCards", async (req, res) => {
-    res.send(await mysql.getCards(req.query.username, req.query.pass))
+    let returned = await mysql.getCards(req.query.username, req.query.pass)
+    res.send(returned)
 })
 
 app.post("/purchase", (req, res) => {
@@ -30,7 +31,6 @@ app.post("/purchase", (req, res) => {
         if(p == 0) return res.send("x")
         combined = (p) ? [...p] : []
         cards.push(...combined)
-        console.log(cards)
         await mysql.updateCards(cards, req.query.username, req.query.pass)
         res.send(cards)
     })
@@ -48,12 +48,11 @@ app.post("/redeemCards", (req, res) => {
         let value = values[hand]
         let code = Buffer.from(req.query.username+value.toString()+Math.random().toString()).toString('base64')
         await mysql.generateCoupon(value, code)
-        res.send(value)
+        res.send(code)
     })
 })
 
 app.get("/getCouponValue", async (req, res) => {
-    console.log(req.query.code)
     res.send(await mysql.getCouponValue(req.query.code))
 })
 
