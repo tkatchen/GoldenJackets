@@ -14,6 +14,13 @@ function getCount(cards) {
     return cnt
 }
 
+function checkFiveOfAKind(cnt) {
+    for(let num of Object.values(cnt)) {
+        if (num == 5) return true
+    }
+    return false
+}
+
 function checkRoyalFlush(cards,rankedCards) {
     if(rankedCards[0] == 8) {
         if(checkFlush(cards) && checkStraight(rankedCards)) return true
@@ -81,39 +88,53 @@ function checkPair(cnt) {
 }
 
 exports.getHand = (cards) => {
+    console.log(this.cards)
     let cnt = getCount(cards)
     let rankedCards = ranked(cards)
-    if(checkRoyalFlush(cards,rankedCards)) return 0
-    if(checkStraightFlush(cards,rankedCards)) return 1
-    if(checkFourOfAKind(cnt)) return 2
-    if(checkFullHouse(cnt)) return 3
-    if(checkFlush(cards)) return 4
-    if(checkStraight(rankedCards)) return 5
-    if(checkThreeOfAKind(cnt)) return 6
-    if(checkTwoPair(cnt)) return 7
-    if(checkPair(cnt)) return 8
+    if(checkFiveOfAKind(cnt)) return 0
+    if(checkRoyalFlush(cards,rankedCards)) return 1
+    if(checkStraightFlush(cards,rankedCards)) return 2
+    if(checkFourOfAKind(cnt)) return 3
+    if(checkFullHouse(cnt)) return 4
+    if(checkFlush(cards)) return 5
+    if(checkStraight(rankedCards)) return 6
+    if(checkThreeOfAKind(cnt)) return 7
+    if(checkTwoPair(cnt)) return 8
+    if(checkPair(cnt)) return 9
 }
 
 exports.values = {
     0:250,
-    1:150,
-    2:125,
-    3:100,
-    4:50,
-    5:40,
-    6:20,
-    7:15,
-    8:10
+    1:200,
+    2:150,
+    3:125,
+    4:100,
+    5:50,
+    6:40,
+    7:20,
+    8:15,
+    9:10
 }
 
 exports.Ranks = {
-    0:"Royal Flush",
-    1:"Straight Flush",
-    2:"Four of a Kind",
-    3:"Full House",
-    4:"Flush",
-    5:"Straight",
-    6:"Three of a Kind",
-    7:"Two Pair",
-    8:"Pair"
+    0:"Five of a Kind",
+    1:"Royal Flush",
+    2:"Straight Flush",
+    3:"Four of a Kind",
+    4:"Full House",
+    5:"Flush",
+    6:"Straight",
+    7:"Three of a Kind",
+    8:"Two Pair",
+    9:"Pair"
+}
+
+exports.cards = []
+
+exports.setCards = (buffer) => {
+    this.cards = this.parseBuffer(buffer)
+}
+
+exports.parseBuffer = (buffer) => {
+    return JSON.parse(JSON.parse(JSON.stringify(Buffer.from(Buffer.from(buffer).toString("utf8").match(/.{2}/g).map(x => "0x"+x), "hex").toString("utf8")).replace(/\u0000/g,""))).join("").match(/.{2}/g)
 }
