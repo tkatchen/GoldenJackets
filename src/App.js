@@ -8,7 +8,7 @@ import Products from './Pages/Products';
 import Login from './Pages/Login';
 import Contact from './Pages/Contact';
 import AppContainer from './Pages/Casino';
-
+import Cart from './Pages/Cart';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
           <Route path='/casino' component={AppContainer} />
           <Route path='/products' component={Products} />
           <Route path='/login' component={Login} />
+          <Route path='/cart' component={Cart} />
           <Route path='/contact' component={Contact} />
         </Switch>
       </Router>
