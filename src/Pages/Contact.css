@@ -5,4 +5,13 @@
 .nameInfo {
     font-size: 20px;
     margin-left: 50px;
+
+}
+
+.contactColumn {
+    float: left;
+    width: 50%;
+    display: block;
+    text-align: center;
+    padding-top: 8px;
 }
