@@ -3,19 +3,19 @@ import PropTypes from "prop-types";
 
 const ActionsButtons = (props) => {
   return (
-    <div style={{ margin: "40px auto", textAlign: "center" }}>
-      <button onClick={() => props.shuffle(props.deckArray)}>Shuffle</button>
-      <button onClick={() => props.dealOneCard()}>Deal one card</button>
-      <button onClick={() => props.flip()}>Flip</button>
+    <div style={{ margin: "40px auto", textAlign: "center", marginLeft:"20 px"}}>
+      <button onClick={() => props.viewYourCards()}>Deal your cards</button>
+      <button onClick={() => props.selectCards()}>Select your cards</button>
     </div>
   );
 };
 
 ActionsButtons.propTypes = {
   shuffle: PropTypes.func,
-  dealOneCard: PropTypes.func,
+  viewYourCards: PropTypes.func,
   flip: PropTypes.func,
-  deckArray: PropTypes.array
+  deckArray: PropTypes.array,
+  selectCards: PropTypes.func,
 };
 
 export default ActionsButtons;

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-
 import Card from "./components/Card.jsx" ;
 import ActionsButtons from "./components/ActionsButtons.jsx" ;
 import { deckArray } from "./utils/DeckArray";
+
+
 
 class Poker extends Component {
 
@@ -11,6 +12,7 @@ class Poker extends Component {
     this.state = {
       cardsArray: deckArray,
       cardPicked: [],
+      cardsSelected: [],
       front: true
     };
   };
@@ -28,7 +30,7 @@ class Poker extends Component {
     return array;
   };
 
-  dealOneCard = () => {
+  viewYourCards = () => {
     let cardsArray = this.state.cardsArray;
     const randomItem = cardsArray[Math.floor(Math.random()*cardsArray.length)];
     let cardsPickedArray = this.state.cardPicked;
@@ -41,6 +43,11 @@ class Poker extends Component {
     this.setState({ front: !this.state.front})
   };
 
+  selectCards = () => {
+    this.setState({cardsSelected})
+  }
+
+
   render() {
     const cardsArray = this.state.cardsArray;
     const cardsPickedArray = this.state.cardPicked;
@@ -51,12 +58,12 @@ class Poker extends Component {
           {cardsArray && cardsArray.map((card, index) => {
             return (
               <div className="animated slideInDown" key={index}>
-                <Card suits={card.suits} card={card.card} color={card.color} front={this.state.front}/>
+                <Card suits={card.suits} card={card.card} color={card.color} front={false}/>
               </div>
             ); 
           })}
         </div>
-        <ActionsButtons shuffle={this.shuffle} dealOneCard={this.dealOneCard} flip={this.flip} deckArray={deckArray} />
+        <ActionsButtons shuffle={this.shuffle} viewYourCards={this.viewYourCards} flip={this.flip} deckArray={deckArray} />
         <div style={{ display: "flex", justifyContent: "center", margin: "40px auto 0px 180px" }}>
           {cardsPickedArray && cardsPickedArray.map((card, index) => {
             return (
