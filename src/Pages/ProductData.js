@@ -2,7 +2,7 @@ const product_card = [
     {
         id: 1,
         product_name: "1/10oz Gold Coin",
-        description: "999 Fine Gold Coin",
+        description: "1/10 oz 0.999 Fine Golden Coin",
         price: 200,
         currency: "$",
         thumb: "../Images/1_10OZ_GOLD_COINS.jpg"
@@ -20,7 +20,7 @@ const product_card = [
     {
         id: 3,
         product_name: "Gold Crest Pin",
-        description: "14k Gold Tech Crest Pin",
+        description: "14k Gold Goergia Tech Crest Pin",
         price: 175,
         currency: "$",
         thumb: "../Images/14K_GOLD_LABEL_PIN.jpg"
@@ -29,7 +29,7 @@ const product_card = [
     {
         id: 4,
         product_name: "Poker Set",
-        description: "500 Piece Poker Set",
+        description: "500 Chips and Cards Poker Set",
         price: 65,
         currency: "$",
         thumb: "../Images/500_PIECE_POKER_SET.jpeg"
@@ -37,7 +37,7 @@ const product_card = [
     },
     {
         id: 5,
-        product_name: "NCAA Championship Ring",
+        product_name: "NCAA Champ Ring",
         description: "1990 NCAA Footbal Championship Ring",
         price: 450,
         currency: "$",
@@ -46,7 +46,7 @@ const product_card = [
     },
     {
         id: 6,
-        product_name: "NCAA World Series Jersy",
+        product_name: "World Series Jersey",
         description: "1994 NCAA World Series Game Worn Signed Jersy",
         price: 700,
         currency: "$",
@@ -65,7 +65,7 @@ const product_card = [
     {
         id: 8,
         product_name: "1oz Silver Coin",
-        description: "999 Fine Silver Coin",
+        description: "1oz 999 Fine Silver Coin",
         price: 25,
         currency: "$",
         thumb: "../Images/SILVER_COINS.jpg"

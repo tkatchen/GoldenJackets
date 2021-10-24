@@ -3,7 +3,7 @@ import sha1 from 'sha1'
 import {useState} from 'react'
 import axios from 'axios'
 import './Login.css'
-import {setCards, getHand} from '../Util/cardHelper.js'
+import {setCards} from '../Util/cardHelper.js'
 
 function Login() {
   const [registerPassword, setRegisterPassword] = useState('')

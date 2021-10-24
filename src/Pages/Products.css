@@ -40,9 +40,10 @@
     
 }
 
-.column {
+.productColumn {
     float: left;
     width: 50%;
+    display: block;
 }
 .row:after {
     content: "";
@@ -59,14 +60,14 @@ h3{
 }
 
 .card {
-    width: 40%;
+    width: 100%;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     position: relative;
-    transform: scale(.8);
+    transform: scale(.95);
     transition:all .3s ease-in-out;
     margin-bottom: 50px;
     left: 10px;

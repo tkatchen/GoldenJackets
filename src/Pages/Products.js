@@ -31,10 +31,10 @@ const Products = () => {
         <div className="main_content">
             <h3>Items</h3>
             <div className="row">
-                <div className="column">
+                <div className="productColumn">
                     {column1}
                 </div>
-                <div className="column">
+                <div className="productColumn">
                     {column2}
                 </div>
             </div>
