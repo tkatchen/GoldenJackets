@@ -7,6 +7,8 @@ import Casino from './Pages/Casino';
 import Products from './Pages/Products';
 import Login from './Pages/Login';
 import Contact from './Pages/Contact';
+import AppContainer from './Pages/Casino';
+
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/casino' component={Casino} />
+          <Route path='/casino' component={AppContainer} />
           <Route path='/products' component={Products} />
           <Route path='/login' component={Login} />
           <Route path='/contact' component={Contact} />
