@@ -11,6 +11,7 @@ import Contact from './Pages/Contact';
 import AppContainer from './Pages/Casino';
 import Cart from './Pages/Cart';
 import Poker from './Pages/Poker/Poker'
+import Code from './Pages/Code'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/login' component={Login} />
           <Route path='/cart' component={Cart} />
           <Route path='/contact' component={Contact} />
+          <Route path='/code' component={Code} />
         </Switch>
       </Router>
 

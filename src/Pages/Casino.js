@@ -1,8 +1,10 @@
 import "./styles.css";
 import React, {Component} from 'react';
-import {cards, getHand, Ranks, setCardsClean} from '../Util/cardHelper.js'
-import {username, password} from '../Util/auth.js'
+import {cards, getHand, Ranks, setCardsClean, values} from '../Util/cardHelper.js'
+import {username, password, setCode} from '../Util/auth.js'
+import { Redirect } from 'react-router-dom';
 import axios from 'axios'
+import Code from'./Code.js'
 
 // import "react-poker/styles.css"
 let arr = ["AS", "KD", "7S", "8H", "TC"]
@@ -12,7 +14,8 @@ class AppContainer extends Component {
     super(props);
     this.state = {
       selected : [],
-      selectedID : []
+      selectedID : [],
+      redirect:false
     }
   }
 
@@ -40,7 +43,7 @@ class AppContainer extends Component {
         setCardsClean(res2.data)
       })
 
-      res.data
+      setCode(res.data, values[getHand(this.state.selected)])
     })
   }
 
@@ -66,6 +69,10 @@ class AppContainer extends Component {
   }
 
   render() {
+    if(this.state.redirect) {
+      this.state.redirect = false
+      return <Redirect to={"/Code"} />
+    }
     let imgs = cards.map((card, i) => {
       return(
         <img src={"card_images/"+card+".png"} id={i} onClick={() => this.getClicked(card, i)}>
@@ -77,7 +84,10 @@ class AppContainer extends Component {
         <div>
           {(this.state.selected.length == 5) ? "Current Hand: " + Ranks[getHand(this.state.selected)] : "Please select 5 cards"}
         </div>
-        <button className="btn" type="submit" onClick={() => this.generateCoupon()}>Generate Coupon</button>
+        <button className="btn" type="submit" onClick={async () => {
+          await this.generateCoupon()
+          this.setState({redirect:true})
+        }}>Generate Coupon</button>
         {imgs}
       </div>
     );
