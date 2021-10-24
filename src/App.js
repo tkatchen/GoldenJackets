@@ -9,6 +9,7 @@ import Login from './Pages/Login';
 import Contact from './Pages/Contact';
 import AppContainer from './Pages/Casino';
 import Cart from './Pages/Cart';
+import Poker from './Pages/Poker/Poker'
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/casino' component={AppContainer} />
+          <Route path='/casino' component={Poker} />
           <Route path='/products' component={Products} />
           <Route path='/login' component={Login} />
           <Route path='/cart' component={Cart} />

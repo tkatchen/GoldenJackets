@@ -18,8 +18,8 @@ export const SidebarData = [
   },
   {
     title: 'Casino',
-    path: '/Casino',
-    icon: <IoIcons.IoMdPeople />,
+    path: '/casino',
+    icon: <FaIcons.FaMoneyBill />,
     cName: 'nav-text'
   },
   {
