@@ -88,7 +88,6 @@ function checkPair(cnt) {
 }
 
 exports.getHand = (cards) => {
-    console.log(this.cards)
     let cnt = getCount(cards)
     let rankedCards = ranked(cards)
     if(checkFiveOfAKind(cnt)) return 0
