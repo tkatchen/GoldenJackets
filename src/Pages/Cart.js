@@ -80,6 +80,11 @@ class Cart extends Component {
                 <div className="total">Total: ${this.price}</div>
                 <div className="cardTotal">You will earn {Math.floor(this.price/50)} cards for this purhcase!</div>
                 <button className="btn purchaseButton" onClick={() => this.purhcase()}>Purchase!</button>
+                <form>
+                    <div>
+                        <input className="couponButton" placeholder="Coupon Code"/>
+                    </div>
+                </form>
                 <div id="result" className="result"></div>
             </div>
         );

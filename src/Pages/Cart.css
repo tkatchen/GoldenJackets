@@ -38,3 +38,16 @@
 .results {
     align-items: center;
 }
+
+.form-group {
+    margin-left: 200px
+}
+
+.couponButton {
+    width: 135px;
+    align-self: center;
+    position:relative;
+    top: 50px;
+    left:705px;
+    transform: translate(-50px);
+}
