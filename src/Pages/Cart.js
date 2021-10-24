@@ -38,7 +38,8 @@ class Cart extends Component {
                 document.getElementById("result").innerHTML = "Successfully Purchased"
                 cart.cart = []
                 setTimeout(() => {
-                    this.setState({refresh:true})
+                    if(this.state.refresh == true) this.setState({refresh:false})
+                    else this.setState({refresh:true})
                 },2000)
             }
         })
@@ -68,7 +69,9 @@ class Cart extends Component {
                 </div>
             </div>
         )
-        this.setState({refresh:true})
+        if(this.state.refresh == true) this.setState({refresh:false})
+        else this.setState({refresh:true})
+        
     }
     state={redirect:false, refresh:false}
     render() {
