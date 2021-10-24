@@ -5,7 +5,18 @@ import cart from '../Util/cart'
 import Footer from './Footer';
 
 const Products = () => {
-    const listItems = product_card.map((item) => {
+    function handleBuy(item, i) {
+        cart.addToCart(item)
+        let elem = document.getElementById(i)
+        elem.style.backgroundColor = "rgb(0,100,0)"
+        elem.innerHTML = "Added"
+        setTimeout(() => {
+            elem.style.backgroundColor = "gray"
+            elem.innerHTML = "Add to cart"
+        }, 1500)
+        console.log(cart.cart)
+    }
+    const listItems = product_card.map((item, i) => {
         return (
             <div className='body'>
                 <div className='container'>
@@ -17,7 +28,7 @@ const Products = () => {
                             <h2>{item.product_name}</h2>
                             <p>{item.description}</p>
                             <p className="price">{item.price}<span>{item.currency}</span></p>
-                            <button className="btn" onClick={() => cart.addToCart(item)}>Add to cart</button>
+                            <button className="btn" id={i} onClick={() => {handleBuy(item, i)}}>Add to cart</button>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import './Login.css'
 import {setCards} from '../Util/cardHelper.js'
+import auth from '../Util/auth.js'
 
 function Login() {
   const [registerPassword, setRegisterPassword] = useState('')
@@ -28,7 +29,9 @@ function Login() {
       if(res.data.length == 0) {
         document.getElementById("loginOutput").innerHTML = "Incorrect username or password"
       } else {
-        if(res.data[0].cards.data.length != 0) setCards(res.data[0].cards.data)
+        auth.setUsername(loginUsername)
+        auth.setPassword(sha1(loginPassword))
+        if(res.data[0].cards.data.length != 0) setCards(res.data[0].cards)
         document.getElementById("loginOutput").innerHTML = "Succesfully logged in"
       }
     })
@@ -51,6 +54,8 @@ function Login() {
     .then((res) => {
       if(res.data) {
         document.getElementById("registerOutput").innerHTML = "Succesfully registered"
+        auth.setUsername(registerUsername)
+        auth.setPassword(sha1(registerPassword))
       } else {
         document.getElementById("registerOutput").innerHTML = "Username already in use"
       }

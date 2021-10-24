@@ -110,7 +110,7 @@ exports.values = {
     4:100,
     5:50,
     6:40,
-    7:20,
+    7:25,
     8:15,
     9:10
 }
@@ -137,8 +137,13 @@ exports.CARDS = [
 
 exports.cards = []
 
+exports.setCardsClean = (cards) => {
+    this.cards = cards
+}
+
 exports.setCards = (buffer) => {
     this.cards = this.parseBuffer(buffer)
+    console.log(this.cards)
 }
 
 exports.parseBuffer = (buffer) => {
