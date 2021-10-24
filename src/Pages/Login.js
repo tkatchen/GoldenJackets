@@ -28,7 +28,7 @@ function Login() {
       if(res.data.length == 0) {
         document.getElementById("loginOutput").innerHTML = "Incorrect username or password"
       } else {
-        setCards(res.data[0].cards.data)
+        if(res.data[0].cards.data.length != 0) setCards(res.data[0].cards.data)
         document.getElementById("loginOutput").innerHTML = "Succesfully logged in"
       }
     })
