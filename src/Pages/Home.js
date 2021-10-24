@@ -1,8 +1,5 @@
 import React from 'react';
 import './Home.css';
-import logo from '../Components/Navbar/GeorgiaTechlogo.png';
-console.log(logo);
-import Navbar from '../Components/Navbar/Navbar';
 function Home() {
   return (
     
@@ -14,7 +11,7 @@ function Home() {
                     <h2>Welcome to Golden Jackets!</h2>
                     <h3>A pawn shop for GaTech Students.</h3>
                     <p>Students can join the casino to earn rewards!</p>
-                    <p>Click the sidebar to learn more!</p>
+                    <p>Create an account to begin.</p>
                 </div>
             </div>
         </div>
