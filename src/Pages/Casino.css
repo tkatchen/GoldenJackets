@@ -1,0 +1,29 @@
+.couponButton {
+    width: 100px;
+    align-self: center;
+    position:absolute;
+    left:100px;
+    top: -30px;
+    transform: translate(-50px);
+}
+
+.btn {
+    width: 130px;
+}
+.text_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    margin: 25px 0;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.imgformat {
+    width:150px;
+    margin-left: 12px;
+    margin-top: 12px;
+}

@@ -1,4 +1,5 @@
 import "./styles.css";
+import "./Casino.css"
 import React, {Component} from 'react';
 import {cards, getHand, Ranks, setCardsClean, values} from '../Util/cardHelper.js'
 import {username, password, setCode} from '../Util/auth.js'
@@ -75,14 +76,14 @@ class AppContainer extends Component {
     }
     let imgs = cards.map((card, i) => {
       return(
-        <img src={"card_images/"+card+".png"} id={i} onClick={() => this.getClicked(card, i)}>
+        <img className="imgformat" src={"card_images/"+card+".png"} id={i} onClick={() => this.getClicked(card, i)}>
         </img>
       )
     })
     return (
       <div>
-        <div>
-          {(this.state.selected.length == 5) ? "Current Hand: " + Ranks[getHand(this.state.selected)] : "Please select 5 cards"}
+        <div className="text_header">
+          {(this.state.selected.length == 5) ? "Current Hand: " + Ranks[getHand(this.state.selected)] : "Welcome to the Casino! Please select 5 cards"}
         </div>
         <button className="btn" type="submit" onClick={async () => {
           await this.generateCoupon()
