@@ -12,7 +12,7 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div style={{ left: "10vw", top: "10vh", position: "absolute" }}>
+      <div>
         Welcome to the Casino!
       </div>
     );

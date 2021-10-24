@@ -23,6 +23,12 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
+    title: 'Casino Rewards',
+    path: '/casinoRewards',
+    icon: <FaIcons.FaDollarSign />,
+    cName: 'nav-text'
+  },
+  {
     title: 'Sign Up/Login',
     path: '/Login',
     icon: <FaIcons.FaEnvelopeOpenText />,
