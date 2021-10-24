@@ -10,9 +10,11 @@ import auth from '../Util/auth.js'
 class Cart extends Component {
     constructor() {
         super()
+        this.rows = []
+        this.price = 0
     }
 
-    async purhcase() {
+    async purchase() {
         let headers = {
             'Content-Type': 'application/json',
             "Access-Control-Allow-Origin": "*"
@@ -41,17 +43,43 @@ class Cart extends Component {
             }
         })
     }
+
+    async useCoupon(event) {
+        this.rows = []
+        this.price = 0
+        event.preventDefault()
+        let body = {
+            code:this.code
+        }
+        let value
+        await axios.get("http://localhost:6969/getCouponValue", {params:body})
+        .then((res) => {
+            value = res.data[0].value
+        })
+
+        this.price -= value
+        this.rows.push(
+            <div className="row">
+                <div className="cartColumn">
+                    {this.code}
+                </div>
+                <div className="cartColumn">
+                    -${value}
+                </div>
+            </div>
+        )
+        this.setState({refresh:true})
+    }
     state={redirect:false, refresh:false}
     render() {
         if(this.state.redirect) {
             this.state.redirect = false
             return <Redirect to={"/Login"} />
         }
-        let rows = []
-        this.price = 0
+
         for(let item of cart.cart) {
             this.price += item.price
-            rows.push(
+            this.rows.push(
                 <div className="row">
                     <div className="cartColumn">
                         {item.product_name}
@@ -75,15 +103,18 @@ class Cart extends Component {
                     </div>
                 </div>
                 <div id = "rows">
-                    {rows}
+                    {this.rows}
                 </div>
                 <div className="total">Total: ${this.price}</div>
                 <div className="cardTotal">You will earn {Math.floor(this.price/50)} cards for this purhcase!</div>
-                <button className="btn purchaseButton" onClick={() => this.purhcase()}>Purchase!</button>
+                <button className="btn purchaseButton" onClick={() => this.purchase()}>Purchase!</button>
                 <form>
                     <div>
-                        <input className="couponButton" placeholder="Coupon Code"/>
+                        <input className="couponButton" id="coupon" placeholder="Coupon Code" onChange={(event) => this.code =event.target.value}/>
                     </div>
+                    <button className="btn couponButton" onClick={async (event) => {
+                        await this.useCoupon(event)
+                    }}>Use Coupon</button>
                 </form>
                 <div id="result" className="result"></div>
             </div>

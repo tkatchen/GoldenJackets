@@ -82,7 +82,7 @@ module.exports.MySQL = class MySQL {
 
     removeCoupon(code) {
         return new Promise((resolve, reject) => {
-            this.connection.query(`insert into coupons (code, value) values ("${code}", ${value})`,
+            this.connection.query(`delete from coupons where code="${code}"`,
             (error, results, fields) => {
                 if(error) throw error
                 resolve(1)

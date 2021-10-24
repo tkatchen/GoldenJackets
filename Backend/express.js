@@ -56,4 +56,6 @@ app.get("/getCouponValue", async (req, res) => {
     res.send(await mysql.getCouponValue(req.query.code))
 })
 
+app.post("/removeCoupon")
+
 app.listen(6969)
