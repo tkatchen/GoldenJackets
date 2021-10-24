@@ -7,10 +7,6 @@ let {getHand, values} = require("../src/Util/cardHelper.js")
 
 app.use(cors())
 
-app.get("/items", async (req, res) => {
-    res.send(await mysql.getItems())
-})
-
 app.post("/register", async (req, res) => {
     res.send(await mysql.register(req.query.username, req.query.pass))
 })

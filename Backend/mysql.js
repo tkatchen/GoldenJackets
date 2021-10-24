@@ -12,15 +12,6 @@ module.exports.MySQL = class MySQL {
         this.connection.connect()
     }
 
-    getItems() {
-        return new Promise((resolve, reject) => {
-            this.connection.query("SELECT * FROM items", (error, results, fields) => {
-                if(error) throw error;
-                resolve(JSON.parse(JSON.stringify(results)))
-            })
-        })
-    }
-
     register(username, pass) {
         return new Promise((resolve, reject) => {
             this.connection.query(`INSERT INTO users (username, pass, cards) \
